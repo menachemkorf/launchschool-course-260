@@ -45,18 +45,12 @@ var ItemsCollection = Backbone.Collection.extend({
   sortByProp: function(prop) {
     this.comparator = prop;
     this.sort();
-    // this.models = _(this.models).sortBy(function(m) {
-    //   return m.attributes[prop];
-    // });
     this.trigger('rerender');
-    // App.View.render();
   },
   sortByName: function() {
     this.sortByProp('name');
   },
   initialize: function() {
-
-    // this.on('remove reset', App.View.render.bind(App.View));
     this.on('add', this.sortByName);
   }
 });
